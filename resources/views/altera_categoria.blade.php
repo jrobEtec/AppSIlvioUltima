@@ -8,7 +8,7 @@
       <div class="row align-items-center">
         <div class="col-md-6">
           <div class="title d-flex align-items-center flex-wrap">
-            <h2 class="mr-40">Cadastrar Categoria</h2>
+            <h2 class="mr-40">Alterar Categoria</h2>
           </div>
         </div>
         <!-- Invoice Wrapper Start -->
@@ -17,18 +17,19 @@
             <div class="col-10 ">
               <div class="invoice-card card-style mb-30">
                 <div class="card-style mb-30 ">
-                  <h6 class="mb-25 fs-4" >Digite o nome da categoria de curso</h6>
+                  <h6 class="mb-25 fs-4" >Altere categoria de curso</h6>
                   <div class="input-style-1 fs-4 ">
 
-                    <form action="{{route('cadastro-categoria')}}" method="post">
+                    <form action="{{route('alterar-banco-categoria',$registrosCategoria->id)}}" method="post">
+                      @method('put')
                       @csrf
                     <label class="fs-4">Categoria</label>
                     
-                      <input type="text" name="nomecategoria" placeholder="Insira Aqui..." />
+                      <input type="text" name="nomecategoria" value ="{{$registrosCategoria->nomecategoria}}" />
                     
                   </div>
                   <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-3">Salvar</button>
+                    <button type="submit" class="btn btn-primary mb-3">Alterar</button>
                   </div>
                 </form>
 

@@ -5,55 +5,47 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\AulaController;
 
+//para ir para a Index
 Route::get('/',[CategoriaController::class,'index'])->name('index');
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//visualizar e cadastrar a categoria
-Route::get('/cadcategoria',[CategoriaController::class,'mostrarFormCat'])->name("form-cadastro-categoria");
-Route::post('/cadcategoria',[CategoriaController::class,'cadastroCat'])->name("cadastro-categoria");
-
-//rota para manipular a categoria
-Route::get('/manipulacategoria',[CategoriaController::class,'mostrarManipulaCategoria'])->name("manipula-categoria");
-//rota para mostrar as categorias cadastradas
-Route::get('/alterar-categoria/{registrosCategoria}',[CategoriaController::class,'MostrarAlterarCategoria'])->name("alterar-categoria");
-
-//rota para deletar a categoria
-Route::delete('/deletar-categoria/{registrosCategoria}',[CategoriaController::class,'DeletarCategoria'])->name('deletar-categoria');
-
-//rota para buscar por nome da categoria
-Route::get('/buscacategorianome',[CategoriaController::class,'BuscarCategoriaNome'])->name("busca-categoria-nome");
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//visualizar e cadastrar curso
+//para ir para o cadastro do curso
 Route::get('/cadcurso',[CursoController::class,'mostrarFormCurso'])->name("form-cadastro-curso");
 Route::post('/cadcurso',[CursoController::class,'cadastroCurso'])->name("cadastro-curso");
 
-//rota para manipular o curso
+//rotas para manipular curso
 Route::get('/manipulacurso',[CursoController::class,'mostrarManipulaCurso'])->name("manipula-curso");
-//rota para mostrar os cursos cadastradas
-Route::get('/alterar-curso/{registrosCurso}',[CursoController::class,'MostrarAlterarCurso'])->name("alterar-curso");
-
-//rota para deletar o curso
+//rotas para alterar curso
+Route::get('alterar-curso/{registrosCurso}',[CursoController::class,'MostrarAlterarCurso'])->name('alterar-curso');
+Route::put('/alterarbancocurso/{registrosCurso}',[CursoController::class,'AlterarBancoCurso'])->name('alterar-banco-curso');
+//rotas para deletar curso
 Route::delete('/deletar-curso/{registrosCurso}',[CursoController::class,'DeletarCurso'])->name('deletar-curso');
 
-//rota para buscar por nome do curso
-Route::get('/buscacursonome',[CursoController::class,'BuscarCursoNome'])->name("busca-curso-nome");
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//visualizar e cadastrar aula
-Route::get('/cadaula',[AulaController::class,'mostrarFormAula'])->name("form-cadastro-aula");
-Route::post('/cadaula',[AulaController::class,'cadastroAula'])->name("cadastro-aula");
+//para ir para o cadastro da categoria 
+Route::get('/cadcategoria',[CategoriaController::class,'mostrarFormCat'])->name("form-cadastro-categoria");
+Route::post('/cadcategoria',[CategoriaController::class,'cadastroCat'])->name("cadastro-categoria");
+//rotas para manipular categoria
+Route::get('/manipulacategoria',[CategoriaController::class,'mostrarManipulaCategoria'])->name("manipula-categoria");
+//rotas para alterar categoria
+Route::get('/alterar-categoria/{registrosCategoria}',[CategoriaController::class,'MostrarAlterarCategoria'])->name('alterar-categoria');
+Route::put('/alterarbancocategoria/{registrosCategoria}',[CategoriaController::class,'AlterarBancoCategoria'])->name('alterar-banco-categoria');
+//rotas para deletar categoria
+Route::delete('/deletar-categoria/{registrosCategoria}',[CategoriaController::class,'DeletarCategoria'])->name('deletar-categoria');
+//rotas  para buscar por nome da categoria 
+Route::get('/manipulanomecategoria', [CategoriaController::class,'BuscarCategoriaNome'])->name('buscar-categoria-nome');
 
-//rota para manipular a aula
+
+
+
+//para ir para o cadastro da aula 
+Route::get('/cadAula',[AulaController::class,'mostrarFormAula'])->name("form-cadastro-aula");
+Route::post('/cadAula',[AulaController::class,'cadastroAula'])->name("cadastro-aula");
+
+//rotas para manipular aula
 Route::get('/manipulaaula',[AulaController::class,'mostrarManipulaAula'])->name("manipula-aula");
-//rota para mostrar as aulas cadastradas
-Route::get('/alterar-aula/{registrosAula}',[AulaController::class,'MostrarAlterarAula'])->name("alterar-aula");
-
-//rota para deletar a aula
+Route::put('/alterarbancoaula/{registrosAula}',[AulaController::class,'AlterarBancoAula'])->name('alterar-banco-aula');
+//rotas para alterar aula
+Route::get('alterar-aula/{registrosAula}',[AulaController::class,'MostrarAlterarAula'])->name('alterar-aula');
+Route::put('/alterarbancoaula/{registrosAula}',[AulaController::class,'AlterarBancoAula'])->name('alterar-banco-aula');
+//rotas para deletar aula
 Route::delete('/deletar-aula/{registrosAula}',[AulaController::class,'DeletarAula'])->name('deletar-aula');
-
-//rota para buscar por nome da aula
-Route::get('/buscaaulanome',[AulaController::class,'BuscarAulaNome'])->name("busca-aula-nome");
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

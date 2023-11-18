@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
-            $table->string('nomecurso', 40);
+            $table->string('nomecurso',40);
             $table->string('cargahoraria');
             $table->unsignedBigInteger('idcategoria');
             $table->decimal('valor', 6,2);
             $table->timestamps();
+           // $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('idcategoria')->references('id')->on('categorias');
         });
     }
